@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   return {
     // Use a relative base so assets resolve correctly on GitHub Pages regardless of
     // whether the site is served from the repository subpath or a custom domain.
-    base: '/EnesHolisticCoaching/',
+    base: '/enes-holistic-coaching/',
     server: {
       port: 3000,
     },
