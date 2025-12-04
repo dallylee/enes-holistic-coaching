@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
+import { getBaseRoot } from '../utils/navigation';
 
 interface ClientLoginPageProps {
   onNavigateHome?: () => void;
   onNavigateClientLogin?: () => void;
+  onNavigateContact?: () => void;
 }
 
 const sections = [
@@ -16,9 +18,15 @@ const sections = [
   { id: 'progress-tracking', label: 'Progress Tracking' }
 ];
 
-export const ClientLoginPage: React.FC<ClientLoginPageProps> = ({ onNavigateHome, onNavigateClientLogin }) => {
+export const ClientLoginPage: React.FC<ClientLoginPageProps> = ({ onNavigateHome, onNavigateClientLogin, onNavigateContact }) => {
   const handleContactClick = () => {
-    window.location.href = '/#free-chat';
+    if (onNavigateContact) {
+      onNavigateContact();
+      return;
+    }
+
+    const baseRoot = getBaseRoot();
+    window.location.href = `${baseRoot}#free-chat`;
   };
 
   const today = 'Tuesday 12 March, 2024';
@@ -478,3 +486,4 @@ export const ClientLoginPage: React.FC<ClientLoginPageProps> = ({ onNavigateHome
     </div>
   );
 };
+

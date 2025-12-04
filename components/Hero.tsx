@@ -59,6 +59,9 @@ export const Hero: React.FC<HeroProps> = ({ onContactClick }) => {
                 src={heroImage}
                 alt="Enes coaching a client with personalised support"
                 className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover"
+                width={864}
+                height={1184}
+                loading="lazy"
               />
             </div>
           </div>

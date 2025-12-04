@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
-import logoImage from '../src/assets/enes-logo.png';
+import logoImage from '@/assets/enes-logo.png';
 
 interface NavbarProps {
   onContactClick: () => void;
@@ -30,7 +30,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, clientLoginHref 
             onClick={() => onLogoClick?.()}
             className="flex items-center gap-3 focus:outline-none"
           >
-            <img src={logoImage} alt="Enes Holistic Coaching" className="h-12 w-auto" />
+            <img
+              src={logoImage}
+              alt="Enes Holistic Coaching"
+              className="h-12 w-auto"
+              width={710}
+              height={513}
+            />
             <span className={`text-xl font-serif font-bold tracking-tight ${isScrolled ? 'text-sage-900' : 'text-sage-900'}`}>
               Enes Holistic Coaching
             </span>
@@ -59,7 +65,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, clientLoginHref 
           </div>
 
           <div className="md:hidden">
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-stone-600 p-2">
+            <button
+              type="button"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-stone-600 p-2"
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -74,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onContactClick, clientLoginHref 
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-stone-100 absolute w-full">
+        <div id="mobile-menu" className="md:hidden bg-white border-t border-stone-100 absolute w-full">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="#meet-enes" className="block px-3 py-2 text-stone-600 hover:text-sage-700 hover:bg-sage-50 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Meet Enes</a>
             <a href="#how-it-works" className="block px-3 py-2 text-stone-600 hover:text-sage-700 hover:bg-sage-50 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>

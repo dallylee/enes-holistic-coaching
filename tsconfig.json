@@ -23,7 +23,21 @@
         "./src/*"
       ]
     },
+    "baseUrl": ".",
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": [
+    "components",
+    "src",
+    "utils",
+    "index.tsx",
+    "App.tsx",
+    "vite.config.ts",
+    "vite-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
